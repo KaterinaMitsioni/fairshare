@@ -11,25 +11,12 @@ import java.util.List;
 
 public class Payment {
     private int paymentID;
+    private int userID;
     private String paymentType;
     private Double amount;
     private Date date;
     private Boolean splitType;
     private String usernamePayer;
-    private List<User> borrowers;
-    private List<Double> split_amounts;
-
-    public Payment(int paymentID,Date date, Double amount, String paymentType,
-            Boolean splitType, String usernamePayer, List<User> borrowers, List<Double> splitAmounts) {
-        this.paymentID = paymentID;
-        this.amount = amount;
-        this.paymentType = paymentType;
-        this.date = date;
-        this.splitType = splitType;
-        this.usernamePayer = usernamePayer;
-        this.borrowers = borrowers;
-        this.split_amounts = splitAmounts;
-    }
 
     public Payment(Double amount, String paymentType, Date date,
             Boolean splitType, String usernamePayer) {
@@ -40,11 +27,12 @@ public class Payment {
         this.usernamePayer = usernamePayer;
     }
 
-    public Payment(int paymentID, String usernamePayer, Double amount, Date date) {
+    public Payment(int paymentID, String usernamePayer, Double amount, Date date, int userID) {
         this.usernamePayer = usernamePayer;
         this.amount = amount;
         this.date = date;
         this.paymentID = paymentID;
+        this.userID = userID;
     }
 
 
@@ -55,6 +43,7 @@ public class Payment {
     public int getPaymentID() {
         return paymentID;
     }
+
 
     public void setPaymentType(String type) {
         this.paymentType = type;
@@ -95,35 +84,4 @@ public class Payment {
     public String getUsernamePayer() {
         return usernamePayer;
     }
-
-    public void setBorrowers(List<User> borrowers) {
-        this.borrowers = borrowers;
-    }
-
-    public List<User> getBorrowers() {
-        return borrowers;
-    }
-
-    public void setSplitAmounts(List<Double> split_amounts) {
-        this.split_amounts = split_amounts;
-    }
-
-    public List<Double> getSplitAmounts() {
-        return split_amounts;
-    }
-
-    public void addSingleBorrower(User borrower) {
-        if (this.borrowers == null) {
-            this.borrowers = new ArrayList<>();
-        }
-        this.borrowers.add(borrower);
-    }
-
-    public void addBorrower(List<User> newBorrowers) {
-        if (this.borrowers == null) {
-            this.borrowers = new ArrayList<>();
-        }
-        this.borrowers.addAll(newBorrowers);
-    }
-
 }

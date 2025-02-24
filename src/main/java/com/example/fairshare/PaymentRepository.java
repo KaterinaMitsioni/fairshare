@@ -21,7 +21,12 @@ public class PaymentRepository {
      * @return a list of payments for the given user.
      */
     public List<Payment> getPaymentsByUserId(int userID) {
-            String sql = "SELECT * FROM payment WHERE USER_ID = ?";
+            String sql = "SELECT p.PAYMENT_ID, p.USER_ID, u.USERNAME, p.AMOUNT, p.PAYER, p.PAYMENT_DATE \r\n" + //
+                                "FROM PAYMENT p \r\n" + //
+                                "JOIN USERS u ON p.USER_ID = u.USER_ID \r\n" + //
+                                "WHERE p.USER_ID = ?";
             return jdbcTemplate.query(sql, new PaymentMapper(), userID);
         }
 }
+
+

@@ -38,7 +38,7 @@ This project represents a Spring Boot server application hosted locally, designe
 
 
 
-2. **Open [application.properties](gui/src/main/resources/application.properties) file in a text editor**
+2. **Open [application.properties](src/main/resources/application.properties) file in a text editor**
 
 
 

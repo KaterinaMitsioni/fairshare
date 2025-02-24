@@ -11,7 +11,8 @@ public class PaymentMapper implements RowMapper<Payment> {
             rs.getInt("PAYMENT_ID"),
             rs.getString("PAYER"),
             rs.getDouble("AMOUNT"),
-            rs.getDate("PAYMENT_DATE")
+            rs.getDate("PAYMENT_DATE"),
+            rs.getInt("USER_ID")
         );
     }
 }
